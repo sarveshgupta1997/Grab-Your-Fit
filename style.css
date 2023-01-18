@@ -1,0 +1,56 @@
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#navbar #left{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#navbar #right{
+    width: 20%;
+    align-items: center;
+    text-align: center;
+}
+#heading{
+    text-align: center;
+    margin-top:20px;
+    margin-bottom:0px;
+}
+form{
+    width: 25%;
+    padding: 50px;
+    border-radius: 10px;
+    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+input{
+    padding:3px 8px
+}
+#allNotes{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:40px;
+    width: 90%;
+    margin: auto;
+}
+#allNotes #inner{
+    background-color:rgb(255, 236, 212);
+    text-align: center;
+    padding:30px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+#allNotes h2{
+    color:rgb(124, 1, 22)
+}
+#allNotes h3{
+    color:rgb(68, 41, 4)
+}
+#allNotes h5{
+    color:rgb(112, 6, 50)
+}
