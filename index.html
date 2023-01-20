@@ -4,65 +4,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Montserrat-Web, Montserrat, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="/frontend/CSS/home.css">
 </head>
 <body>
+    <!-- Navbar -->
     <div id="navbar">
-        <div id="left">
-            <a href="/index.html">Homepage</a>
-            <a href="/notes.html">Notes</a>
-            <a href="/notesCreate.html">Create a Note</a>
-            <a href="/signUp.html">Register</a>
-            <a id="login_btn" href="/logIn.html">Login</a>
+        <div id="nav-top">
+            <div id="nav-top-left" class="grid-center">
+                <a href="">Rewards</a>
+                <span id="nav-top-divider">|</span>
+                <a href="">EMS Schools</a>
+                <span id="nav-top-divider">|</span>
+                <a href="">goEast</a>
+            </div>
+            <div id="nav-top-right" class="grid-center">
+                <img src="/frontend/images/icons/delivery-truck.png" alt="">
+                <a href="">Free Ground Shipping over $99</a>
+                <span id="nav-top-divider">|</span>
+                <a href="">Find a Store</a>
+                <span id="nav-top-divider">|</span>
+                <a href="">Help</a>
+            </div>
         </div>
-        <div id="right">
-            <h3 id="username"></h3>
-        </div>        
+        <div id="nav-mid">
+                <img src="/frontend/images/logo/logo.png" alt="">
+                <input type="search" value="" placeholder="Search...">
+                <button class="grid-center">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <span class="nav_span_btn_text">My Account & Orders</span>
+                </button>
+                <button class="grid-center">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="nav_span_btn_text">Cart</span>
+                </button>
+        </div>
+        <div id="nav-bottom">
+            <a href="">MEN</a>
+            <a href="">WOMEN</a>
+            <a href="">KIDS</a>
+            <a href="">FOOTWEAR</a>
+            <a href="">CAMP & HIKE</a>
+            <a href="">CLIMB</a>
+            <a href="">SNOW</a>
+            <a href="">CYCLE</a>
+            <a href="">ACTIVITIES</a>
+            <a href="">BRANDS</a>
+            <a href="">SALE & OUTLET</a>
+        </div>
     </div>
-    <div id="heading">
-        <h1>NOTES APP</h1>    
-        <h3>HOMEPAGE</h3>
+    
+    <!-- MId Section -->
+    <div id="mid-container">
+        <div id="mid-container-top-banner">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt150f1f4a20849850/63c1af3a3431f93ff7f796db/011723_SeizeTheFreeze_Hero_Desktop.jpg?format=pjpg&auto=webp" alt="Top Banner">
+        </div>
+        <div id="mid-container-four-banners">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt9e0a77dc75a7b753/63c84d8669608d14edaf9add/011723_SeizeTheFreeze_HP_11.jpg?format=pjpg&auto=webp" alt="Offer-1">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt82257845ca99ebcb/63c84d86e192c22e86771c24/011723_SeizeTheFreeze_HP_05.jpg?format=pjpg&auto=webp" alt="Offer-2">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt074206a6fa89c13a/63c84d860f5896167c71ce5b/011723_SeizeTheFreeze_HP_11-04.jpg?format=pjpg&auto=webp" alt="Offer-3">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt3698473634e51995/63c84d86c1c5071069860bc4/011723_SeizeTheFreeze_HP_03.jpg?format=pjpg&auto=webp" alt="Offer-4">
+        </div>
+        <div id="mid-shop-by-activity">
+            <div id="mid-shop-by-activity-heading">
+                <h1 class="center">SHOP BY ACTIVITY</h1>
+            </div>
+            <div id="mid-shop-by-activity-images" class="grid-center">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt91808be50b26a217/5f622ef04a19ef4fa853d5bf/092020_TrailForged_HP_03.jpg?format=pjpg&auto=webp" alt="Camp & Hike">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltae6a762a65fa3c38/5f622ef0128a9c4e4d50a97f/092020_TrailForged_HP_03-02.jpg?format=pjpg&auto=webp" alt="Snow">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt9bfc8c9477c07eee/5f622ef1d70e764f32920bd1/092020_TrailForged_HP_07.jpg?format=pjpg&auto=webp" alt="Travel">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt7c8d24d74d230df3/5f622ef1f972ad4f3941e78d/092020_TrailForged_HP_09.jpg?format=pjpg&auto=webp" alt="Paddle">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blte4c98aaa44d0238a/5f622ef0a4d7b56a238659cc/092020_TrailForged_HP_11.jpg?format=pjpg&auto=webp" alt="Climb">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltacf8bfd9a651f42b/5f622ef1f0d2b04fae76b08e/092020_TrailForged_HP_13.jpg?format=pjpg&auto=webp" alt="Climb">
+            </div>
+            <div id="mid-shop-by-activity-images" class="grid-center">
+                <img src="https" alt="Camp & Hike">
+                <img src="https" alt="Snow">
+                <img src="https" alt="Travel">
+            </div>
+        </div>
     </div>
 </body>
 </html>
-<script>
-    baseURL="https://dungarees-swallow.cyclic.app";
-
-    let token = localStorage.getItem("token");
-    let login_btn= document.getElementById("login_btn");
-
-    if(token){   
-        login_btn.innerText="Logout";
-        login_btn.addEventListener("click",()=>{
-            localStorage.clear();
-            login_btn.innerText="Login";
-            document.getElementById("username").innerText="Welcome, Guest";
-        })
-    }
-    
-    
-    getUserName();
-    async function getUserName(){
-        try {
-            let url = baseURL+"/username"
-            let res = await fetch(url,{
-                headers: {
-                    "token":token
-                }
-            });
-            let data = await res.json();
-            if(data.user){
-                document.getElementById("username").innerText="Welcome, "+data.user;
-                // localStorage.setItem("loggedUser",data.user)
-            }else{
-                document.getElementById("username").innerText="Welcome, Guest";
-                // localStorage.setItem("loggedUser","Guest")
-            }
-            
-        } catch (error) {
-            alert(error.message)
-        }
-    }
-
-</script>
