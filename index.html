@@ -14,52 +14,13 @@
         }
     </style>
     <link rel="stylesheet" href="/frontend/CSS/home.css">
+    <link rel="stylesheet" href="/frontend/CSS/navbar.css">
+
+    <script type="module" src="./frontend/scripts/index.js"></script>
 </head>
 <body>
     <!-- Navbar -->
     <div id="navbar">
-        <div id="nav-top">
-            <div id="nav-top-left" class="grid-center">
-                <a href="">Rewards</a>
-                <span id="nav-top-divider">|</span>
-                <a href="">EMS Schools</a>
-                <span id="nav-top-divider">|</span>
-                <a href="">goEast</a>
-            </div>
-            <div id="nav-top-right" class="grid-center">
-                <img src="/frontend/images/icons/delivery-truck.png" alt="">
-                <a href="">Free Ground Shipping over $99</a>
-                <span id="nav-top-divider">|</span>
-                <a href="">Find a Store</a>
-                <span id="nav-top-divider">|</span>
-                <a href="">Help</a>
-            </div>
-        </div>
-        <div id="nav-mid">
-                <img src="/frontend/images/logo/logo.png" alt="">
-                <input type="search" value="" placeholder="Search...">
-                <button class="grid-center">
-                    <span class="material-symbols-outlined">account_circle</span>
-                    <span class="nav_span_btn_text">My Account & Orders</span>
-                </button>
-                <button class="grid-center">
-                    <span class="material-symbols-outlined">shopping_cart</span>
-                    <span class="nav_span_btn_text">Cart</span>
-                </button>
-        </div>
-        <div id="nav-bottom">
-            <a href="">MEN</a>
-            <a href="">WOMEN</a>
-            <a href="">KIDS</a>
-            <a href="">FOOTWEAR</a>
-            <a href="">CAMP & HIKE</a>
-            <a href="">CLIMB</a>
-            <a href="">SNOW</a>
-            <a href="">CYCLE</a>
-            <a href="">ACTIVITIES</a>
-            <a href="">BRANDS</a>
-            <a href="">SALE & OUTLET</a>
-        </div>
     </div>
     
     <!-- MId Section -->
@@ -73,6 +34,7 @@
             <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt074206a6fa89c13a/63c84d860f5896167c71ce5b/011723_SeizeTheFreeze_HP_11-04.jpg?format=pjpg&auto=webp" alt="Offer-3">
             <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt3698473634e51995/63c84d86c1c5071069860bc4/011723_SeizeTheFreeze_HP_03.jpg?format=pjpg&auto=webp" alt="Offer-4">
         </div>
+        <!-- Shop By Activity -->
         <div id="mid-shop-by-activity">
             <div id="mid-shop-by-activity-heading">
                 <h1 class="center">SHOP BY ACTIVITY</h1>
@@ -85,12 +47,98 @@
                 <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blte4c98aaa44d0238a/5f622ef0a4d7b56a238659cc/092020_TrailForged_HP_11.jpg?format=pjpg&auto=webp" alt="Climb">
                 <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltacf8bfd9a651f42b/5f622ef1f0d2b04fae76b08e/092020_TrailForged_HP_13.jpg?format=pjpg&auto=webp" alt="Climb">
             </div>
-            <div id="mid-shop-by-activity-images" class="grid-center">
-                <img src="https" alt="Camp & Hike">
-                <img src="https" alt="Snow">
-                <img src="https" alt="Travel">
+            <div id="mid-men-women-kid-images" class="grid-center">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt13b1e3a031b25dd7/63c6c25b4977081097259e24/012423_SeizetheFreeze_HP_13.jpg?format=pjpg&auto=webp" alt="Mens">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt9650c77a5cae5620/63c6c25b08b84c3d9e4c97a7/012423_SeizetheFreeze_HP_13-05.jpg?format=pjpg&auto=webp" alt="Womens">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blte9464b509027d693/63c6c25cbe10fd14ecb45d6e/012423_SeizetheFreeze_HP_13-06.jpg?format=pjpg&auto=webp" alt="">
+            </div>
+        </div>
+        <!-- Camping Gear -->
+        <div id="mid-camping-gear">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltbc78379b9de128d8/63c6c263e192c22e8677196e/012423_SeizetheFreeze_HP_23.jpg?format=pjpg&auto=webp" alt="Camping Gear">
+        </div>
+        <div id="mid-camping-gear-catetgory-images" class="grid-center">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltcdc05d36f5f8a31d/63c6c263adb01e2e7b05298c/012423_SeizetheFreeze_HP_26.jpg?format=pjpg&auto=webp" alt="Mens">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt3288f446e9f9390b/63c6c263eeda2410c17f4416/012423_SeizetheFreeze_HP_27.jpg?format=pjpg&auto=webp" alt="Womens">
+            <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt600ddc8ce0206f03/63c6c2639deb3f643ee45f3a/012423_SeizetheFreeze_HP_29.jpg?format=pjpg&auto=webp" alt="">
+        </div>
+        <!-- More To Explore -->
+        <div id="mid-more-to-explore">
+            <div id="mid-more-to-explore-heading">
+                <h1 class="center">MORE TO EXPLORE</h1>
+            </div>
+            <div id="mid-more-to-explore-images">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltd0e7aba1548eca26/63923ebdbd8730261b83dd0a/121222_HolidaySale_HP_21.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blta6ad5910f58881f5/623b8816fac4b208fa18846d/032922_MudSeasonMarkdowns_HP_38.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt7822756497ee02ed/62606cf47e7b344b253501c1/042622_SpringIntoAdventure_HP_18.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt814697382805a42f/62606cf42777714c51b3186c/042622_SpringIntoAdventure_HP_18-06.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt4350c72f06ca7aef/63c6c2632cbcfb0454a2b8cb/012423_SeizetheFreeze_HP_37.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt3db709ceeb344663/63923ebe7358a234e671e72b/121222_HolidaySale_HP_27.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt158515b04ab47a16/623b8817714afc639a7b24a8/032922_MudSeasonMarkdowns_HP_50.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt7e8d1eebd0f3c7ff/63923ebec08ef0300c43dbff/121222_HolidaySale_HP_30.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+            </div>
+        </div>
+        <!-- Footwear -->
+        <div id="mid-footwear">
+            <div id="mid-footwear-heading">
+                <h1 class="center">FOOTWEAR FOR ANY TERRAIN</h1>
+            </div>
+            <div id="mid-footwear-images">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt05194eae8a64bd21/623b8816e6c8cf4de6f6de10/032922_MudSeasonMarkdowns_HP_57.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltb6bebeb3a0bf9671/623b8817fac4b208fa188471/032922_MudSeasonMarkdowns_HP_59.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt246c0c75a33ae3d6/623b881d159fc76504c1793c/032922_MudSeasonMarkdowns_HP_60.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltf20fc75e723406e5/623b881d714afc639a7b24ac/032922_MudSeasonMarkdowns_HP_62.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltfdc82abe260205c0/636296ed9e5b454a7a9eb8ce/110122_BlackFriday_HP_40.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt72773666d000f28e/6061d8d10aa89f0eda2772fa/03XX21_NewSeasonSale_HP_42.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt2fb359b53e97c3be/623b881e12562208fd9bed85/032922_MudSeasonMarkdowns_HP_69.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt9dfeac846c07f8c4/6061d93a0aa89f0eda2772fe/03XX21_NewSeasonSale_HP_45.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+            </div>
+        </div>
+        <!-- Instagram -->
+        <div id="mid-instagram">
+            <div id="mid-instagram-heading">
+                <h1 class="center">FOLLOW US ON INSTAGRAM:</h1>
+            </div>
+            <div id="mid-instagram-banner">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltd420475dd3246267/5ec4394b3a450a58554b6169/EMS_Insta_Logo.jpg?format=pjpg&auto=webp" alt="Camping Gear">
+            </div>
+            <div id="mid-instagram-images">
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltb51c87ba00f9737e/63c6c26a21560710c8e88ddb/012423_SeizetheFreeze_HP_59.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blta93513155f6b66c8/63c6c26aadb01e2e7b052990/012423_SeizetheFreeze_HP_55.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt3ca3f79419ec084e/63c6c26ae6cd4a7779d9f654/012423_SeizetheFreeze_HP_43.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt19552930aded693f/63c6c2641bb5c94c86d1ce5b/012423_SeizetheFreeze_HP_41-14.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt7cd176f36a94072c/63c6c2641779f2026027cb17/012423_SeizetheFreeze_HP_41.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt68d7040349fc3b5c/63c6c263cb2b29167d2e54d9/012423_SeizetheFreeze_HP_41-15.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt27618af649d3c89a/63c6c25b48ef12105ee3a4b8/011723_SeizeTheFreeze_HP_57.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt2e7ac6e4daefaa23/63c6c25b1bb5c94c86d1ce57/011723_SeizeTheFreeze_HP_56.jpg?format=pjpg&auto=webp" alt="Camp & Hike">                
+            </div>
+        </div>
+        <!-- Top Brands -->
+        <div id="mid-brands">
+            <div id="mid-brands-heading">
+                <h1 class="center">TOP BRANDS</h1>
+            </div>
+            <div id="mid-brands-images">             
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blte1d73c4776030eb9/5e7010ec81bc8343ad1622f2/EMS.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt61e61f7e1fa536c9/5e7010ec6bd5c76d2ce01e47/The_North_Face.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt8b36f1bef2998054/5e7010ec23ff3341c4f5a254/Thule.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt24c0f3726d22ee61/5e7010ec7b615942b99e75a4/SmartWool.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt9782f2364fa467fa/5e7010ec84d2f56d32c68796/Marmot.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt1267d28d9a9726e2/5e7010ec3ed79e6484b30c92/Black_Diamond.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt1a30980bff21a296/5e7010f30aa80a6c6b7d7439/Osprey.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/bltc5b58ea04f309f94/5e7010f3d56aa8647901fcc3/Merrell.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blt392a181a8a877167/5e7010ecbfb1c042abc0c33f/Petzl.png?format=pjpg&auto=webp" alt="Camp & Hike">                
+                <img src="https://images.contentstack.io/v3/assets/blt7841d2a593726d96/blte49658b4fea69fdc/5f760ecce69fa40ef31815d0/TopBrands_Yeti_600x300.png?format=pjpg&auto=webp" alt="Camp & Hike">                
             </div>
         </div>
     </div>
+
+
+    <button id="nav-mid-dropdown-btn1" onclick="location.href='./frontend/login.html'">Account Details</button>
+    onclick="location.href = 'login.html';"
+    <button id="nav-mid-dropdown-btn2">Order History</button>
+    <button id="nav-mid-dropdown-btn3">Log out</button>
+
+    <div style="padding-top: 300px; background-color: bisque;"></div>
 </body>
 </html>
