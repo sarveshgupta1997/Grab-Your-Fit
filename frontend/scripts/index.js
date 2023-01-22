@@ -1,12 +1,12 @@
 
 import navbar from "./navbar.js"
-// const {navbar} = require("/navbar");
+document.getElementById("navbar").innerHTML=navbar();
 let token = localStorage.getItem("token");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
 if(token){   
     dropdown_content.innerHTML= `
-    <button id="nav-mid-dropdown-btn1">Account Details</button>
+    <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/update_user.html'">Account Details</button>
     <button id="nav-mid-dropdown-btn2">Order History</button>
     <button id="nav-mid-dropdown-btn3">Log out</button>
     `;
@@ -20,5 +20,3 @@ if(token){
         `;
     })
 }
-
-document.getElementById("navbar").innerHTML=navbar();

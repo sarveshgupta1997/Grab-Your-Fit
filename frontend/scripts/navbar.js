@@ -18,7 +18,7 @@ function navbar(){
         </div>
     </div>
     <div id="nav-mid">
-            <img src="/frontend/images/logo/logo.png" alt="">
+            <img onclick="location.href='/index.html'" src="/frontend/images/logo/logo.png" alt="">
             <input type="search" value="" placeholder="Search...">
             <div class="dropdown">
                 <button class="grid-center dropbtn">
@@ -26,8 +26,8 @@ function navbar(){
                     <span class="nav_span_btn_text">My Account & Orders</span>
                 </button>
                 <div id ="nav-dropdown-content" class="dropdown-content">
-                <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/login.html'">Sign In</button>
-                <button id="nav-mid-dropdown-btn2" onclick="location.href='/frontend/signup.html'">Create Account</button>
+                    <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/login.html'">Sign In</button>
+                    <button id="nav-mid-dropdown-btn2" onclick="location.href='/frontend/signup.html'">Create Account</button>
                 </div>
             </div>
             <button class="grid-center">

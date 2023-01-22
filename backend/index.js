@@ -1,19 +1,25 @@
 const express = require("express");
 const {connection} = require("./config/db")
 const {userRoute} = require("./routes/user_route");
-const {noteRoute} = require("./routes/note_route");
+const {productRoute} = require("./routes/product_route");
 const {authenticator} = require("./middlewares/authenticator_middleware");
+const fileUpload = require("express-fileupload");
 require("dotenv").config();
-const cors = require('cors')
+const cors = require('cors');
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 
+app.use(fileUpload({
+    useTempFiles:true
+}))
+
 app.use("/users",userRoute);
 // For all routes we need to authenticate the user first so creating a middle ware
-app.use(authenticator);
-app.use("/notes",noteRoute);
+// app.use(authenticator);
+app.use("/products",productRoute);
 
 app.get("/username",(req,res)=>{
 })

@@ -15,6 +15,16 @@ userRoute.get("/",async(req,res)=>{
         console.log({err:error})
     }
 })
+userRoute.get("/:id",async(req,res)=>{
+    let ID=req.params.id;
+    try {
+        const data = await UserModel.findOne({_id:ID});
+        res.send(data);
+    } catch (error) {
+        res.send("Eroor while getting users");
+        console.log({err:error})
+    }
+})
 
 userRoute.post("/register",async(req,res)=>{
     let {fname,lname,email,pass}=req.body;
@@ -47,13 +57,13 @@ userRoute.post("/login",async(req,res)=>{
                     // const token = jwt.sign({ user_id: user[0]["_id"]}, process.env.secretKey);
                     const token = jwt.sign({ user_id: user[0]["_id"] , loggedUser:user[0]["fname"] }, process.env.secretKey);
                     console.log({"msg":`${user[0].fname}'s Login Successful`,"token":token}) 
-                    res.send({"msg":`${user[0].fname}'s Login Successful`,"token":token}); 
+                    res.send({"msg":`${user[0].fname}'s Login Successful`,"token":token,"loggedUserId":user[0]["_id"]}); 
                 }else{
-                    res.send("Wrong Credentials");
-                }           
+                    res.send({err:"Wrong Credentials"});
+                }               
             })
         }else{
-            res.send("Wrong Credentials");
+            res.send({err:"Wrong Credentials"});
         }
     } catch (error) {
         console.log({err:error})
@@ -61,5 +71,24 @@ userRoute.post("/login",async(req,res)=>{
     }
 })
 
+userRoute.patch("/update/:id",async(req,res)=>{
+    let {fname,lname,email,pass}=req.body;
+    let ID=req.params.id;
+    try {
+        saltRoute = +process.env.saltRoute;
+        // Hashing - encrypting using bcrypt
+        bcrypt.hash(pass, saltRoute, async function(err, secure_pass) {
+            if(err){
+                console.log(err);
+            }else{
+                await UserModel.findByIdAndUpdate({_id:ID},{fname,lname,email,pass:secure_pass});
+                res.send({Message:`Profile Updated`});
+            }
+        });
+    } catch (error) {
+        res.send("Eroor while updating user")
+        console.log({err:error})
+    }
+})
 
 module.exports={userRoute};
