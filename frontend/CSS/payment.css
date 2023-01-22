@@ -1,0 +1,116 @@
+
+#form_grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+form{
+    width: 58%;
+    /* width: 25%; */
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 10px 30px ;
+    background-color: #F4EFDF;
+    box-shadow: 0 0 0 2px rgb(0 0 0 / 25%);
+    margin-bottom: 20px;    
+    margin-top: 20px;
+}
+form h2,form h3,form h5{
+    text-align: center;
+    margin-bottom: 20px;
+}
+form input{
+    padding:12px;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid gainsboro;
+    width: 90%;
+}
+form input:focus{
+    border: 1px solid  rgb(95, 123, 104);
+}
+form input[type="submit"]{
+    background-color:  rgb(95, 123, 104);
+    color: white;
+    width: 97%;
+}
+form span{
+    display: flex;
+    justify-content: space-between;
+}
+form span label:last-child{
+    color:  rgb(95, 123, 104);
+}
+form button{
+    display: flex;
+    padding: 8px 60px;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid gainsboro;
+    background-color: white;
+    margin-bottom: 40px;
+}
+form .fa-solid{
+    position: absolute;
+    top: 327px;
+    left: 831px;
+    color: lightgrey;
+} 
+form h1{
+  font-size: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form h1 span{
+  color: rgb(95, 123, 104);
+}
+form h1 span.blue{
+  font-size: 65px;
+}
+table{
+  width: 100%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  border-collapse: collapse;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+thead tr{
+  background-color: #FED54E;
+}
+th{
+  font-size: 14px;
+}
+td{
+  font-size: 13px;
+}
+td.green{
+  color:green;
+  font-weight: 900;
+}
+td.red{
+  color:red;
+  font-weight: 900;
+}
+th,td{
+  padding: 8px 5px;
+}
+tr{
+  border-bottom: 1px solid lightgray;
+}
+th{
+  border: 1px solid rgb(255, 255, 255);
+}
+form select{
+  margin: auto;
+  width:20%;
+}
+::placeholder{
+  color: black;
+}

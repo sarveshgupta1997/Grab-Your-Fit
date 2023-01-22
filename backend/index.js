@@ -2,6 +2,7 @@ const express = require("express");
 const {connection} = require("./config/db")
 const {userRoute} = require("./routes/user_route");
 const {productRoute} = require("./routes/product_route");
+const {orderRoute} = require("./routes/order_route");
 const {authenticator} = require("./middlewares/authenticator_middleware");
 const fileUpload = require("express-fileupload");
 require("dotenv").config();
@@ -17,9 +18,10 @@ app.use(fileUpload({
 }))
 
 app.use("/users",userRoute);
-// For all routes we need to authenticate the user first so creating a middle ware
-// app.use(authenticator);
 app.use("/products",productRoute);
+
+app.use(authenticator);
+app.use("/orders",orderRoute);
 
 app.get("/username",(req,res)=>{
 })

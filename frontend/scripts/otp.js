@@ -5,7 +5,6 @@ document.getElementById("navbar").innerHTML=navbar();
 
 
 let token = localStorage.getItem("token");
-let loggedUserId = localStorage.getItem("loggedUserId");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
 if(token){   
@@ -25,48 +24,68 @@ if(token){
         window.location.assign("/index.html");
     })
 }
-getUserDetails(loggedUserId);
 
-let form = document.querySelector("form");
-
-async function getUserDetails(loggedUserId){
+getUserName();
+async function getUserName(){
     try {
-        let url = baseURL+"/users/"+loggedUserId;
-        // console.log(url)
-        let res = await fetch(url);
+        let url = baseURL+"/username"
+        let res = await fetch(url,{
+            headers: {
+                "token":token
+            }
+        });
         let data = await res.json();
-        form.fname.value=data.fname
-        form.lname.value=data.lname
-        form.email.value=data.email
-        form.pass.value=data.pass
+        if(data.user){
+            localStorage.setItem("loggedUser",data.user)
+        }else{
+            localStorage.setItem("loggedUser","Guest")
+        }
+        
     } catch (error) {
         alert(error.message)
     }
-};
+}
 
-form.addEventListener("submit",(event)=>{       
-    event.preventDefault();
-    let obj={
-        fname: form.fname.value,
-        lname: form.lname.value,
-        email: form.email.value,
-        pass: form.pass.value
+let price=localStorage.getItem("Price");    
+let productId=localStorage.getItem("ProductId");
+let product_name=localStorage.getItem("Product_Name");
+let loggedUser=localStorage.getItem("loggedUser");
+let img1_src=localStorage.getItem("img1_src");
+
+document.querySelector("#otp_submit").addEventListener("click",function(e){
+    e.preventDefault();
+    let otp=document.querySelector("#otp_entered").value;
+    console.log(otp);
+    if(otp=="1234"){
+        alert("Payment Successful");
+        let obj={
+            title: product_name,
+            price: price,
+            product_id: productId,
+            img1_src: img1_src,
+            user:loggedUser
+        }
+        registerOrderInDb(obj);
+
+    }else{
+        alert("Incorrect OTP");
     }
-    updateInDb(obj,loggedUserId);
 })
 
-async function updateInDb(obj,loggedUserId){
+async function registerOrderInDb(obj){
     try {
-        let url = baseURL+"/users/update/"+loggedUserId;
+        let url = baseURL+"/orders/create"
         let res = await fetch(url,{
-            method:"PATCH",
+            method:"POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "token":token
             },
             body:JSON.stringify(obj)
         });
         let data = await res.json();
         alert(data.Message);
+        window.location.href="/frontend/order_history.html";
 
     } catch (error) {
         alert(error.message)

@@ -36,7 +36,7 @@ function navbar(){
             </button>
     </div>
     <div id="nav-bottom">
-        <a href="">MEN</a>
+        <a href="/frontend/all_products.html">MEN</a>
         <a href="">WOMEN</a>
         <a href="">KIDS</a>
         <a href="">FOOTWEAR</a>

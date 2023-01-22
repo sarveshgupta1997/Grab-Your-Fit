@@ -3,6 +3,7 @@ import navbar from "./navbar.js"
 import baseURL from "./baseURL.js"
 document.getElementById("navbar").innerHTML=navbar();
 
+
 let token = localStorage.getItem("token");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
@@ -24,43 +25,36 @@ if(token){
     })
 }
 
-let form = document.querySelector("form");
-form.addEventListener("submit",(event)=>{       
-    event.preventDefault();
-    let obj={
-        email: form.email.value,
-        pass: form.pass.value
-    }
-    // console.log(obj)
-    loginFromDb(obj);
-})
-async function loginFromDb(obj){
-    try {
-        let url = baseURL+"/users/login"
-        let res = await fetch(url,{
-            method:"POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body:JSON.stringify(obj)
-        });
-        let data = await res.json();
-        if(data.msg){
-            alert(data.msg);
-            window.location.assign("/index.html");
-        }else{
-            alert(data.err);
-        }
+    
 
-        let token= data.token;
-        let loggedUserId= data.loggedUserId;
-        localStorage.setItem("token",token)
-        localStorage.setItem("loggedUserId",loggedUserId)
-        
-        // console.log(token);
-        // alert(JSON.stringify(data));
-    } catch (error) {
-        // alert("Wrong Credentials2");
-        alert(error.message);
+let price=localStorage.getItem("Price") || 0;
+let product_name=localStorage.getItem("Product_Name") || "Unisex Feather Jacket";
+// console.log(price,plan)
+
+document.getElementById("product_input").placeholder=`${product_name}`;
+document.getElementById("price_input").placeholder=`${price}`;
+document.getElementById("priceAmount").innerText=`₹${price}`;
+
+document.querySelector("form").addEventListener("submit",function(){
+    event.preventDefault();
+    let num= document.querySelector("#card_num").value;
+    let cvv= document.querySelector("#cvv").value;
+    let date= document.querySelector("#date").value;
+    let name= document.querySelector("#name").value;
+    let msg="";
+    if(num=="1234567890123456" && cvv=="123" && date=="1997-01-13" ){
+        alert("Otp sent on your mobile");
+        window.location.assign("/frontend/otp.html");
+    }if(num!=="1234567890123456"){
+        msg= "Wrong Creadentials- ";
+        msg+=" card number "
+    }if(cvv!=="123"){
+        msg+=" cvv "
+    }if(date!=="1997-01-13"){
+        msg+=" date "
     }
-};
+    if(msg!==""){
+        alert(msg);
+    }
+})
+

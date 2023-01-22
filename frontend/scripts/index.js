@@ -7,7 +7,7 @@ let dropdown_content= document.getElementById("nav-dropdown-content");
 if(token){   
     dropdown_content.innerHTML= `
     <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/update_user.html'">Account Details</button>
-    <button id="nav-mid-dropdown-btn2">Order History</button>
+    <button id="nav-mid-dropdown-btn2" onclick="location.href='/frontend/order_history.html'">Order History</button>
     <button id="nav-mid-dropdown-btn3">Log out</button>
     `;
     let logout_btn = document.getElementById("nav-mid-dropdown-btn3");
@@ -18,5 +18,6 @@ if(token){
         <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/login.html'">Sign In</button>
         <button id="nav-mid-dropdown-btn2" onclick="location.href='/frontend/signup.html'">Create Account</button>
         `;
+        window.location.assign("/index.html");
     })
 }

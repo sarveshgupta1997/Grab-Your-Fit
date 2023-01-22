@@ -97,7 +97,7 @@ hr{
     font-size: 15px;
 }
 #product-price p{
-    margin: 0 4px;
+    margin: 4px 4px;
 }
 #product-price-discounted{
     color: #D22516;
@@ -133,4 +133,5 @@ hr{
     color: white;
     border-radius: 2px;
     background-color: #a55810;
+    cursor: pointer;
 }

@@ -76,15 +76,20 @@ userRoute.patch("/update/:id",async(req,res)=>{
     let ID=req.params.id;
     try {
         saltRoute = +process.env.saltRoute;
-        // Hashing - encrypting using bcrypt
-        bcrypt.hash(pass, saltRoute, async function(err, secure_pass) {
-            if(err){
-                console.log(err);
-            }else{
-                await UserModel.findByIdAndUpdate({_id:ID},{fname,lname,email,pass:secure_pass});
-                res.send({Message:`Profile Updated`});
-            }
-        });
+        //for case when user is not upaditng pass but bcrypt is working two times
+        if(pass.length>15){
+            await UserModel.findByIdAndUpdate({_id:ID},{fname,lname,email,pass  });
+            res.send({Message:`Profile Updated`});
+        }else{
+            bcrypt.hash(pass, saltRoute, async function(err, secure_pass) {
+                if(err){
+                    console.log(err);
+                }else{
+                    await UserModel.findByIdAndUpdate({_id:ID},{fname,lname,email,pass:secure_pass});
+                    res.send({Message:`Profile Updated`});
+                }
+            });
+        }
     } catch (error) {
         res.send("Eroor while updating user")
         console.log({err:error})
