@@ -30,7 +30,7 @@
     flex-direction: column;
     width: 48%;
 }
-input{
+input,select{
     padding: 8px;
     font-size: 15px;
     margin-bottom: 10px;

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Montserrat-Web, Montserrat, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="/frontend/CSS/home.css">
+    <link rel="stylesheet" href="/frontend/CSS/navbar.css">
+    <link rel="stylesheet" href="/frontend/CSS/signup.css">
+
+    <script type="module" src="./scripts/product_create.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar">   
+    </div>
+    
+    <!-- Registration Form Section -->
+    <div id="registration">
+        <h2>Crete New Product</h2>
+        <form id="registration_form" enctype="multipart/form-data">
+        <!-- <form id="registration_form" action="/profile" method="POST" enctype="multipart/form-data"> -->
+
+            <label for="title">Product Title *</label>
+            <input type="text" id="title" required>
+
+            <label for="price">Product Price *</label>
+            <input type="text" id="price" required>
+
+            <label for="desc">Product Description *</label>
+            <input type="text" id="desc" required>
+            
+            <label for="brand">Brand *</label>
+            <select name="brand" id="brand">
+                <option value="adidas">ADIDAS</option>
+                <option value="puma">PUMA</option>
+                <option value="nike">NIKE</option>
+                <option value="beingHuman">BEING HUMAN</option>
+                <option value="tommyHilfiger">TOMMY HILFIGER</option>
+            </select>
+
+            <label for="category">Product Category *</label>
+            <input type="text" id="category" required>
+
+            <label for="img1_src">Product First Image *</label>
+            <input type="text" id="img1_src" name="photo" required>
+
+            <label for="img2_src">Product Second Image *</label>
+            <input type="text" id="img2_src" name="photo" required>
+
+            <label for="status">Status *</label>
+            <select name="status" id="status">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+            <input type="submit" value="Crete New Product" id="register">
+
+        </form>
+    </div>
+    <div style="padding-top: 300px; background-color: bisque;"></div>
+</body>
+</html>

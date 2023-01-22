@@ -3,7 +3,9 @@ import navbar from "./navbar.js"
 import baseURL from "./baseURL.js"
 document.getElementById("navbar").innerHTML=navbar();
 
+
 let token = localStorage.getItem("token");
+let loggedUserId = localStorage.getItem("loggedUserId");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
 if(token){   
@@ -22,44 +24,50 @@ if(token){
         `;
     })
 }
+getUserDetails(loggedUserId);
 
 let form = document.querySelector("form");
+
+async function getUserDetails(loggedUserId){
+    try {
+        let url = baseURL+"/users/"+loggedUserId;
+        // console.log(url)
+        let res = await fetch(url);
+        let data = await res.json();
+        form.fname.value=data.fname
+        form.lname.value=data.lname
+        form.email.value=data.email
+        form.pass.value=data.pass
+    } catch (error) {
+        alert(error.message)
+    }
+};
+
 form.addEventListener("submit",(event)=>{       
     event.preventDefault();
     let obj={
+        fname: form.fname.value,
+        lname: form.lname.value,
         email: form.email.value,
         pass: form.pass.value
     }
-    // console.log(obj)
-    loginFromDb(obj);
+    updateInDb(obj,loggedUserId);
 })
-async function loginFromDb(obj){
+
+async function updateInDb(obj,loggedUserId){
     try {
-        let url = baseURL+"/users/login"
+        let url = baseURL+"/users/update/"+loggedUserId;
         let res = await fetch(url,{
-            method:"POST",
+            method:"PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
             body:JSON.stringify(obj)
         });
         let data = await res.json();
-        if(data.msg){
-            alert(data.msg);
-            window.location.assign("/index.html");
-        }else{
-            alert(data.err);
-        }
+        alert(data.Message);
 
-        let token= data.token;
-        let loggedUserId= data.loggedUserId;
-        localStorage.setItem("token",token)
-        localStorage.setItem("loggedUserId",loggedUserId)
-        
-        // console.log(token);
-        // alert(JSON.stringify(data));
     } catch (error) {
-        // alert("Wrong Credentials2");
-        alert(error.message);
+        alert(error.message)
     }
 };
