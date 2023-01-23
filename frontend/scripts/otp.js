@@ -85,7 +85,7 @@ async function registerOrderInDb(obj){
         });
         let data = await res.json();
         alert(data.Message);
-        // window.location.href="/frontend/order_history.html";
+        window.location.href="/frontend/order_history.html";
 
     } catch (error) {
         alert(error.message)
