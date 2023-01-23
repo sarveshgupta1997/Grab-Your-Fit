@@ -1,6 +1,9 @@
 
 import navbar from "./navbar.js"
+import baseURL from "./baseURL.js"
 document.getElementById("navbar").innerHTML=navbar();
+
+
 let token = localStorage.getItem("token");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
@@ -42,3 +45,49 @@ async function getUserName(){
         alert(error.message)
     }
 }
+
+let price=localStorage.getItem("Price");    
+let productId=localStorage.getItem("ProductId");
+let product_name=localStorage.getItem("Product_Name");
+let loggedUser=localStorage.getItem("loggedUser");
+let img1_src=localStorage.getItem("img1_src");
+
+document.querySelector("#otp_submit").addEventListener("click",function(e){
+    e.preventDefault();
+    let otp=document.querySelector("#otp_entered").value;
+    console.log(otp);
+    if(otp=="1234"){
+        alert("Payment Successful");
+        let obj={
+            title: product_name,
+            price: price,
+            product_id: productId,
+            img1_src: img1_src,
+            user:loggedUser
+        }
+        registerOrderInDb(obj);
+
+    }else{
+        alert("Incorrect OTP");
+    }
+})
+
+async function registerOrderInDb(obj){
+    try {
+        let url = baseURL+"/orders/create"
+        let res = await fetch(url,{
+            method:"POST",
+            headers: {
+                "Content-Type": "application/json",
+                "token":token
+            },
+            body:JSON.stringify(obj)
+        });
+        let data = await res.json();
+        alert(data.Message);
+        // window.location.href="/frontend/order_history.html";
+
+    } catch (error) {
+        alert(error.message)
+    }
+};
