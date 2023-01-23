@@ -1,5 +1,6 @@
 
 import navbar from "./navbar.js"
+import baseURL from "./baseURL.js"
 document.getElementById("navbar").innerHTML=navbar();
 let token = localStorage.getItem("token");
 
