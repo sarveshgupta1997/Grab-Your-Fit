@@ -43,6 +43,7 @@ function get_time(){
 
 orderRoute.post("/create",async(req,res)=>{
     let payload=req.body;
+    console.log(payload)
     payload.order_date=get_date();
     payload.order_time=get_time();
     try {

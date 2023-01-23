@@ -21,3 +21,24 @@ if(token){
         window.location.assign("/index.html");
     })
 }
+
+getUserName();
+async function getUserName(){
+    try {
+        let url = baseURL+"/username"
+        let res = await fetch(url,{
+            headers: {
+                "token":token
+            }
+        });
+        let data = await res.json();
+        if(data.user){
+            localStorage.setItem("loggedUser",data.user)
+        }else{
+            localStorage.setItem("loggedUser","Guest")
+        }
+        
+    } catch (error) {
+        alert(error.message)
+    }
+}
