@@ -56,7 +56,6 @@ hr{
     border: 1px solid rgba(0, 0, 0, 0.1);
     display: block;
     padding: 8px;
-    flex-grow: 1;
     text-align: left;
     text-decoration: none;
 }
@@ -117,7 +116,7 @@ hr{
     width: 95%;
     margin:auto;
 }
-#buy-now{
+#buy-now, .btn-brown{
     display: flex;
     justify-content: center;
     align-items: center;

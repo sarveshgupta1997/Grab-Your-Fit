@@ -5,9 +5,10 @@ document.getElementById("navbar").innerHTML=navbar();
 
 
 let token = localStorage.getItem("token");
+let adminToken = localStorage.getItem("adminToken");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
-if(token){   
+if(token || adminToken){   
     dropdown_content.innerHTML= `
     <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/update_user.html'">Account Details</button>
     <button id="nav-mid-dropdown-btn2" onclick="location.href='/frontend/order_history.html'">Order History</button>
@@ -85,7 +86,7 @@ async function registerOrderInDb(obj){
         });
         let data = await res.json();
         alert(data.Message);
-        // window.location.href="/frontend/order_history.html";
+        window.location.href="/frontend/order_history.html";
 
     } catch (error) {
         alert(error.message)
