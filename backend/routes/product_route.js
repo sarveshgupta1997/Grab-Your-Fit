@@ -13,6 +13,7 @@ const productRoute=express.Router();
 
 productRoute.get("/",async(req,res)=>{
     try {
+        // await ProductModel.updateMany({},{$set:{purchases:1}});
         const data = await ProductModel.find();
         res.send(data);
     } catch (error) {
@@ -20,6 +21,16 @@ productRoute.get("/",async(req,res)=>{
         console.log({err:error})
     }
 })
+productRoute.get("/all_for_admin",async(req,res)=>{
+    try {
+        const data = await ProductModel.find();
+        res.send(data);
+    } catch (error) {
+        res.send({err:"Eroor while getting products"});
+        console.log({err:error})
+    }
+})
+
 function get_date(){
     let date= new Date();
     var year = date.getFullYear();
@@ -36,10 +47,13 @@ function get_time(){
     var time = hours+":"+mins+":"+sec;
     return time;
 }
+
+
 productRoute.post("/create",async(req,res)=>{
     let payload=req.body;
     payload.created_date=get_date();
     payload.created_time=get_time();
+    payload.purchases=0;
     try {
         const product = new ProductModel(payload);
         await product.save();
@@ -49,6 +63,34 @@ productRoute.post("/create",async(req,res)=>{
         console.log({err:error})
     }
 })
+
+productRoute.patch("/update",async(req,res)=>{
+    let payload=req.body;
+    ID=req.headers.product_to_update;
+    try {
+        await ProductModel.findByIdAndUpdate({_id:ID},payload);
+        res.send({"message":`product Updated with id:${ID}`});
+    } catch (error) {
+        console.log({err:error})
+        res.send({err:"Error while updating product"})
+    }
+})
+
+productRoute.delete("/delete",async(req,res)=>{
+    ID=req.headers.product_to_delete;
+    try {
+        await ProductModel.findByIdAndDelete({_id:ID});
+        res.send({"message":`Product Deleted with id:${ID}`});
+    } catch (error) {
+        console.log({err:error})
+        res.send({err:"Error while Deleting product"})
+    }
+})
+
+module.exports={productRoute};
+
+
+
 
 // productRoute.post("/create",async(req,res)=>{
 //     let payload=req.body;
@@ -80,49 +122,3 @@ productRoute.post("/create",async(req,res)=>{
 //         console.log({err:error})
 //     }
 // })
-
-productRoute.patch("/update/:id",async(req,res)=>{
-    let payload=req.body;
-    
-    payload.last_updated_date=get_date();
-    payload.last_updated_time=get_time();
-    ID=req.params.id;
-    try {
-        let product= await ProductModel.findByIdAndUpdate({_id:ID});
-        let userID_in_product= product["user_id"];
-        let userID_from_jwt= req.body["user_id"];
-        if(userID_in_product==userID_from_jwt){
-            await ProductModel.findByIdAndUpdate({_id:ID},payload);
-            res.send({"message":`product Updated with id:${ID}`});
-        }else{
-            res.send({err:"You are not allowed to perform editing in someone's else products"});
-        }
-    } catch (error) {
-        console.log({err:error})
-        res.send("Error while updating product")
-    }
-})
-
-productRoute.delete("/delete/:id",async(req,res)=>{
-    ID=req.params.id;
-    try {
-        let product= await ProductModel.findByIdAndUpdate({_id:ID});
-        let userID_in_product= product["user_id"];
-        let userID_from_jwt= req.body["user_id"];
-        if(userID_in_product==userID_from_jwt){
-            await ProductModel.findByIdAndDelete({_id:ID});
-        res.send({"message":`product Deleted with id:${ID}`});
-        }else{
-            res.send({err:"You are not allowed to perform editing in someone's else products"});
-        }
-        
-    } catch (error) {
-        console.log({err:error})
-        res.send("Error while Deleting product")
-    }
-})
-
-
-
-
-module.exports={productRoute};

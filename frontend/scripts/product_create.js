@@ -4,9 +4,10 @@ import baseURL from "./baseURL.js"
 document.getElementById("navbar").innerHTML=navbar();
 
 let token = localStorage.getItem("token");
+let adminToken = localStorage.getItem("adminToken");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
-if(token){   
+if(token || adminToken){   
     dropdown_content.innerHTML= `
     <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/update_user.html'">Account Details</button>
     <button id="nav-mid-dropdown-btn2" onclick="location.href='/frontend/order_history.html'">Order History</button>
@@ -22,6 +23,27 @@ if(token){
         `;
         window.location.assign("/index.html");
     })
+}
+
+getUserName();
+async function getUserName(){
+    try {
+        let url = baseURL+"/username"
+        let res = await fetch(url,{
+            headers: {
+                "token":token
+            }
+        });
+        let data = await res.json();
+        if(data.user){
+            localStorage.setItem("loggedUser",data.user)
+        }else{
+            localStorage.setItem("loggedUser","Guest")
+        }
+        
+    } catch (error) {
+        alert(error.message)
+    }
 }
 
 let form = document.querySelector("form");
@@ -46,13 +68,18 @@ async function registerInDb(obj){
         let res = await fetch(url,{
             method:"POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "admintoken":adminToken
             },
             body:JSON.stringify(obj)
         });
         let data = await res.json();
-        alert(data.Message);
-        // window.location.assign("/index.html");
+        if(data.err){
+            alert(data.err);
+        }else{
+            alert(data.Message);
+            window.location.assign("./admin.html");
+        }
 
     } catch (error) {
         alert(error.message)

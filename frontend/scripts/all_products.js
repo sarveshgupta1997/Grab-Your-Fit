@@ -1,12 +1,11 @@
-
-
 import navbar from "./navbar.js"
 import baseURL from "./baseURL.js"
 document.getElementById("navbar").innerHTML=navbar();
 let token = localStorage.getItem("token");
+let adminToken = localStorage.getItem("adminToken");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
-if(token){   
+if(token || adminToken){   
     dropdown_content.innerHTML= `
     <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/update_user.html'">Account Details</button>
     <button id="nav-mid-dropdown-btn2" onclick="location.href='/frontend/order_history.html'">Order History</button>
@@ -24,8 +23,28 @@ if(token){
     })
 }
 
-getProducts();
+getUserName();
+async function getUserName(){
+    try {
+        let url = baseURL+"/username"
+        let res = await fetch(url,{
+            headers: {
+                "token":token
+            }
+        });
+        let data = await res.json();
+        if(data.user){
+            localStorage.setItem("loggedUser",data.user)
+        }else{
+            localStorage.setItem("loggedUser","Guest")
+        }
+        
+    } catch (error) {
+        alert(error.message)
+    }
+}
 
+getProducts();
 async function getProducts(){
     try {
         let url = baseURL+"/products/"
@@ -36,14 +55,15 @@ async function getProducts(){
         }else{
             displayData(data);
         }
-        // window.location.assign("/index.html");
 
     } catch (error) {
         alert(error.message)
     }
 }
+
 let products_container = document.querySelector("#products_container");
 let product_count = document.querySelector("#product-count");
+
 function displayData(data){
     let count=0;
     products_container.innerHTML=null;
@@ -60,27 +80,27 @@ function displayData(data){
                     </div>
                     <a id="product-title" href="">${el.title}</a>
                     <div id="product-price">
-                        <p id="product-price-discounted">₹${el.price}</p>
-                        <p id="product-price-orignal">₹${orignal_price}</p>
+                        <p id="product-price-discounted">₹599</p>
+                        <p id="product-price-orignal">₹1048.25</p>
                         <p id="product-price-dot">·</p>
                         <p id="product-price-discount">25% off</p>
-                        </div>
-                        <div id="product-buttons">
+                    </div>
+                    <div id="product-buttons">
                         <button id="buy-now" class="${el._id}---${el.price}---${el.title}---${el.img1_src}" >
-                        Buy Now
-                        <span class="material-symbols-outlined">
-                        shopping_cart_checkout
-                        </span>
+                            Buy Now &nbsp;
+                            <span class="material-symbols-outlined">shopping_cart_checkout</span>
                         </button>
-                        </div>
-                        </div>
-                        `
-                        changeImage();
-                        buyNow();
-                    }
-                });
-                product_count.innerText=count+" products";
-            }
+                    </div>
+                    </div>
+                    `
+                    // <p id="product-price-discounted"></p>
+                    changeImage();
+            buyNow();
+        }
+    });
+    product_count.innerText=count+" products";
+}
+
 function buyNow(){
     let buyNow = document.querySelectorAll("#buy-now");
     

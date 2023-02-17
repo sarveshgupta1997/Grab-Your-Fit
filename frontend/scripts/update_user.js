@@ -5,10 +5,11 @@ document.getElementById("navbar").innerHTML=navbar();
 
 
 let token = localStorage.getItem("token");
+let adminToken = localStorage.getItem("adminToken");
 let loggedUserId = localStorage.getItem("loggedUserId");
 
 let dropdown_content= document.getElementById("nav-dropdown-content");
-if(token){   
+if(token || adminToken){   
     dropdown_content.innerHTML= `
     <button id="nav-mid-dropdown-btn1" onclick="location.href='/frontend/update_user.html'">Account Details</button>
     <button id="nav-mid-dropdown-btn2" onclick="location.href='/frontend/order_history.html'">Order History</button>
@@ -25,15 +26,40 @@ if(token){
         window.location.assign("/index.html");
     })
 }
+getUserName();
+async function getUserName(){
+    try {
+        let url = baseURL+"/username"
+        let res = await fetch(url,{
+            headers: {
+                "token":token
+            }
+        });
+        let data = await res.json();
+        if(data.user){
+            localStorage.setItem("loggedUser",data.user)
+        }else{
+            localStorage.setItem("loggedUser","Guest")
+        }
+        
+    } catch (error) {
+        alert(error.message)
+    }
+}
+
 getUserDetails(loggedUserId);
 
 let form = document.querySelector("form");
 
 async function getUserDetails(loggedUserId){
     try {
-        let url = baseURL+"/users/"+loggedUserId;
+        let url = baseURL+"/users/getUserDetail";
         // console.log(url)
-        let res = await fetch(url);
+        let res = await fetch(url,{
+            headers:{
+                user_id:loggedUserId
+            }
+        });
         let data = await res.json();
         form.fname.value=data.fname
         form.lname.value=data.lname
@@ -67,6 +93,8 @@ async function updateInDb(obj,loggedUserId){
         });
         let data = await res.json();
         alert(data.Message);
+        localStorage.clear();
+        window.location.href="/frontend/login.html";
 
     } catch (error) {
         alert(error.message)

@@ -3,7 +3,6 @@ import navbar from "./navbar.js"
 import baseURL from "./baseURL.js"
 document.getElementById("navbar").innerHTML=navbar();
 
-
 let token = localStorage.getItem("token");
 let adminToken = localStorage.getItem("adminToken");
 
@@ -51,17 +50,15 @@ let form = document.querySelector("form");
 form.addEventListener("submit",(event)=>{       
     event.preventDefault();
     let obj={
-        fname: form.fname.value,
-        lname: form.lname.value,
         email: form.email.value,
         pass: form.pass.value
     }
-    registerInDb(obj);
+    // console.log(obj)
+    adminLogInFromDb(obj);
 })
-
-async function registerInDb(obj){
+async function adminLogInFromDb(obj){
     try {
-        let url = baseURL+"/users/register"
+        let url = baseURL+"/admin/login"
         let res = await fetch(url,{
             method:"POST",
             headers: {
@@ -70,10 +67,17 @@ async function registerInDb(obj){
             body:JSON.stringify(obj)
         });
         let data = await res.json();
-        alert(data.Message);
-        window.location.assign("/frontend/login.html");
+        if(data.msg){
+            alert(data.msg);
+            window.location.href="/frontend/admin.html";
+        }else{
+            alert(data.err);
+        }
 
+        let adminToken= data.adminToken;
+        localStorage.setItem("adminToken",adminToken);
+        
     } catch (error) {
-        alert(error.message)
+        alert(error.message);
     }
 };

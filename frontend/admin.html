@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Montserrat-Web, Montserrat, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="/frontend/CSS/home.css">
+    <link rel="stylesheet" href="/frontend/CSS/navbar.css">
+    <link rel="stylesheet" href="/frontend/CSS/all_products.css">
+
+    <script type="module" src="./scripts/admin.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar">   
+    </div>
+    
+    <div id="heading"><h2 class="top_heading">All Orders</h2></div>
+    <hr>
+    <div id="container">
+
+        <!-- filteration Left -->
+        <div id="filteration">
+            <button id="all_orders" class="btn-brown" onclick="location.href='/frontend/admin.html'"">All Orders</button>
+            <button id="all_products_admin" class="btn-brown" >All Products</button>
+            <button id="all_users" class="btn-brown" >All Users</button>
+            <button id="create_product" class="btn-brown" onclick="location.href='product_create.html'"">Create Product</button>
+        </div>
+
+        <!-- Products Right -->
+        <div id="products">
+            <p id="product-count">2048 products</p>
+            <div id="products_container">
+                <!-- <div id="products-inner">
+                    <img src="https://res.cloudinary.com/eastern/image/upload/w_600,q_auto,f_auto/2066736_002_main.jpg" alt="shirt">
+                    <div id="product-small-images">
+                        <span><img src="https://res.cloudinary.com/eastern/image/upload/w_600,q_auto,f_auto/2066736_002_main.jpg" alt="shirt"></span>
+                        <span><img src="https://res.cloudinary.com/eastern/image/upload/w_1000,q_auto,f_auto/2066736_001_main.jpg" alt="shirt"></span>
+                    </div>
+                    <a id="product-title" href="">EMS Men's Trailhead Long-Sleeve Shirt</a>
+                    <div id="product-price">
+                        <p id="product-price-discounted">₹48.74</p>
+                        <p id="product-price-orignal">₹64.99</p>
+                        <p id="product-price-dot">·</p>
+                        <p id="product-price-discount">25% off</p>
+                    </div>
+                    <div id="product-buttons">
+                        <button id="buy-now">
+                            Buy Now
+                            <span class="material-symbols-outlined">
+                                shopping_cart_checkout
+                            </span>
+                        </button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div style="padding-top: 300px; background-color: bisque;"></div> -->
+</body>
+</html>
