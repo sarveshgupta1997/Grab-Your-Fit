@@ -37,16 +37,16 @@ function navbar(){
     </div>
     <div id="nav-bottom">
         <a href="/frontend/all_products.html">MEN</a>
-        <a href="">WOMEN</a>
-        <a href="">KIDS</a>
-        <a href="">FOOTWEAR</a>
-        <a href="">CAMP & HIKE</a>
-        <a href="">CLIMB</a>
-        <a href="">SNOW</a>
-        <a href="">CYCLE</a>
-        <a href="">ACTIVITIES</a>
-        <a href="">BRANDS</a>
-        <a href="">SALE & OUTLET</a>
+        <a href="/frontend/all_products.html">WOMEN</a>
+        <a href="/frontend/all_products.html">KIDS</a>
+        <a href="/frontend/all_products.html">FOOTWEAR</a>
+        <a href="/frontend/all_products.html">CAMP & HIKE</a>
+        <a href="/frontend/all_products.html">CLIMB</a>
+        <a href="/frontend/all_products.html">SNOW</a>
+        <a href="/frontend/all_products.html">CYCLE</a>
+        <a href="/frontend/all_products.html">ACTIVITIES</a>
+        <a href="/frontend/all_products.html">BRANDS</a>
+        <a href="/frontend/all_products.html">SALE & OUTLET</a>
     </div>    
     `
 }
